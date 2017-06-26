@@ -1,0 +1,72 @@
+.header-title{
+	left: 0px!important; 
+	text-align: left!important; 
+	padding-left: 15px;
+	color: #FFFFFF;
+}
+.mui-bar-nav{
+	background: #021e4a;
+}
+.mui-bar-tab .mui-tab-item.mui-active{
+	color:#021e4a;
+}
+
+.bottom-tab{
+	-webkit-box-shadow: 0 0 1px rgba(2, 30, 74, .85);
+    box-shadow: 0 0 1px rgba(2, 30, 74, .85);
+}
+
+.activity-list-box{
+	margin-top: 20px;
+}
+.activity-list-box .activity-list-title{
+	width: 100%;
+	height: 28px;
+	padding: 0px 15px;
+	font-size: 16px;
+}
+
+.profile-box-one{
+	width: 100%; 
+	text-align: center;
+	padding: 30px 15px 0 15px;
+}
+.profile-box-one .partingLine{
+	width: 100%;
+	height: 1px;
+	border-top: 1px solid #000000;
+	margin:30px 0;
+}
+.profile-list{
+	width: 100%;
+	padding: 0 15px;
+	margin: 0px;
+	list-style: none;
+}
+
+.profile-list li{
+	margin-bottom: 15px;
+	padding-left: 20%;
+}
+
+.transcript-info{
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+	overflow: hidden;
+	font-size: 13px;
+}
+.transcript-info li{
+	height: 20px;
+	overflow: hidden;
+	margin-bottom: 10px;	
+}
+.transcript-info li:last-child{
+	margin-bottom: 0px;	
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
