@@ -45,8 +45,28 @@
 }
 
 .profile-list li{
-	margin-bottom: 15px;
+	height: 20px;
+	margin-bottom: 18px;
 	padding-left: 20%;
+	line-height: 20px;
+}
+.profile-list li span{
+	display: block;
+	float: left;
+	height: 20px;
+	line-height: 20px;
+	font-size: 16px;
+	padding: 0px;
+	margin-right: 8px;
+}
+.profile-list li .profile-font{
+	margin-right: 12px!important;
+	color: #000000;
+	font-family:"iconfont" !important;
+    font-size:18px !important;
+    font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .transcript-info{
@@ -187,4 +207,15 @@
 .week-box .week-list .weekactive{
 	color: #021e4a;
 	border-bottom: 1px solid #021e4a;
+}
+
+.student-name{
+	margin: 0px!important;
+	font-size: 15px!important;
+}
+
+.banner-box{
+	width: 100%;
+	max-height: 200px;
+	overflow: hidden;
 }
