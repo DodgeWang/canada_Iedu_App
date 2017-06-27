@@ -35,7 +35,7 @@
 									<li>
 										<span class="font-icon icon-riqi"></span><span>03/13/2015-10/13/2015</span>
 									</li>
-								</ul>		
+								</ul>
 							</div>
 						</div>
 						<div class="week-box">
@@ -51,7 +51,7 @@
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="mui-card">
 						<!--<div class="mui-card-header">No.1</div>-->
 						<div class="courselist-header">
@@ -67,7 +67,7 @@
 									<li>
 										<span class="font-icon icon-riqi"></span><span>03/13/2015-10/13/2015</span>
 									</li>
-								</ul>		
+								</ul>
 							</div>
 						</div>
 						<div class="week-box">
@@ -83,7 +83,7 @@
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="mui-card">
 						<!--<div class="mui-card-header">No.1</div>-->
 						<div class="courselist-header">
@@ -99,7 +99,7 @@
 									<li>
 										<span class="font-icon icon-riqi"></span><span>03/13/2015-10/13/2015</span>
 									</li>
-								</ul>		
+								</ul>
 							</div>
 						</div>
 						<div class="week-box">
@@ -115,8 +115,7 @@
 							</div>
 						</div>
 					</div>
-					
-					
+
 				</div>
 			</div>
 		</div>
@@ -140,6 +139,13 @@
 					mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
 				}, 1000);
 			}
+
+			mui('.mui-content').on('tap', '.mui-card', function() {
+				mui.openWindow({
+					url: 'courseInfo.html',
+					id: "courseInfo"
+				})
+			})
 		</script>
 
 	</body>
