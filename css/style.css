@@ -70,3 +70,121 @@
 .fr{
 	float: right;
 }
+.courseBooklist{
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+	overflow: hidden;
+}
+
+.courseBooklist li{
+	height: 20px;
+	width: 100%;
+	margin-bottom: 5px;
+	clear: both;
+	
+}
+.courseBooklist li:last-child{
+	margin-bottom: 0px;
+}
+.courseBooklist li span{
+	display: block;
+	float: left;
+	height: 20px;
+	font-size: 14px;
+	line-height: 20px;
+}
+.courseBooklist li span:first-child{
+	margin-right: 5px;
+}
+.courseBooklist li>.font-icon{
+	width: 20px;
+	padding: 0px;
+	font-family:"iconfont" !important;
+    font-size:20px !important;
+    font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.courselist-header{
+	height: 36px;
+	padding: 10px 15px;
+	border-radius: 2px 2px 0 0;
+	position: relative;
+	overflow: hidden;
+}
+
+.courselist-header:after{
+	position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 1px;
+    content: '';
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    background-color: #c8c7cc;
+}
+.courselist-header span{
+	display: block;
+}
+.courselist-header .courselist-num{
+	float: left;
+	height: 16px;
+	line-height: 16px;
+	font-size: 16px;
+}
+.courselist-header .courselist-code{
+	float: right;
+	height: 13px;
+	margin-top: 3px;
+	line-height: 13px;
+	font-size: 13px;
+}
+
+.week-box{
+	height: 34px;
+	border-radius: 0 0 2px 2px;
+	padding: 7px 15px;
+	position: relative;
+	overflow: hidden;
+}
+.week-box:before{
+	position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 1px;
+    content: '';
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    background-color: #c8c7cc;
+}
+
+.week-box div{
+	height: 24px;
+	line-height: 20px;
+}
+.week-box .week-name{
+	font-size: 14px;
+	float: left;
+}
+
+.week-box .week-list{
+	float: right;
+}
+.week-box .week-list span{
+	font-size: 12px;
+	display: block;
+	color: #c8c7cc;
+	float: left;
+	width: 14px;
+	height: 20px;
+	text-align: center;
+	margin-left: 2px;
+}
+.week-box .week-list .weekactive{
+	color: #021e4a;
+	border-bottom: 1px solid #021e4a;
+}

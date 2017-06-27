@@ -10,62 +10,93 @@
 	</head>
 
 	<body>
-		<div class="mui-content">
-			<img src="../img/banner.jpg" style="width: 100%;" />
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<div class="mui-content">
+					<img src="../img/banner.jpg" style="width: 100%;" />
 
-			<div class="activity-list-box">
-				<div class="activity-list-title">校园活动</div>
-				<ul class="mui-table-view mui-grid-view">
-					<li class="mui-table-view-cell mui-media mui-col-xs-6">
-						<a href="#">
-							<img class="mui-media-object" src="../img/yuantiao.jpg">
-							<div class="mui-media-body">活动2</div>
-						</a>
-					</li>
-					<li class="mui-table-view-cell mui-media mui-col-xs-6">
-						<a href="#">
-							<img class="mui-media-object" src="../img/yuantiao.jpg">
-							<div class="mui-media-body">活动2</div>
-						</a>
-					</li>
-					<li class="mui-table-view-cell mui-media mui-col-xs-6">
-						<a href="#"><img class="mui-media-object" src="../img/yuantiao.jpg">
-							<div class="mui-media-body">活动3</div>
-						</a>
-					</li>
-					<li class="mui-table-view-cell mui-media mui-col-xs-6">
-						<a href="#">
-							<img class="mui-media-object" src="../img/yuantiao.jpg">
-							<div class="mui-media-body">活动4</div>
-						</a>
-					</li>
-				</ul>
-			</div>
+					<div class="activity-list-box">
+						<div class="activity-list-title">校园活动</div>
+						<ul class="mui-table-view mui-grid-view">
+							<li class="mui-table-view-cell mui-media mui-col-xs-6">
+								<a href="#">
+									<img class="mui-media-object" src="../img/yuantiao.jpg">
+									<div class="mui-media-body">活动2</div>
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-media mui-col-xs-6">
+								<a href="#">
+									<img class="mui-media-object" src="../img/yuantiao.jpg">
+									<div class="mui-media-body">活动2</div>
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-media mui-col-xs-6">
+								<a href="#"><img class="mui-media-object" src="../img/yuantiao.jpg">
+									<div class="mui-media-body">活动3</div>
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-media mui-col-xs-6">
+								<a href="#">
+									<img class="mui-media-object" src="../img/yuantiao.jpg">
+									<div class="mui-media-body">活动4</div>
+								</a>
+							</li>
+						</ul>
+					</div>
 
-			<div class="activity-list-box">
-				<div class="activity-list-title">学院信息</div>
-				<ul class="mui-table-view mui-grid-view">
-					<li class="mui-table-view-cell mui-media mui-col-xs-6">
-						<a href="#">
-							<img class="mui-media-object" src="../img/yuantiao.jpg">
-							<div class="mui-media-body">联系方式</div>
-						</a>
-					</li>
-					<li class="mui-table-view-cell mui-media mui-col-xs-6">
-						<a href="#">
-							<img class="mui-media-object" src="../img/yuantiao.jpg">
-							<div class="mui-media-body">学院地址</div>
-						</a>
-					</li>
-					<li class="mui-table-view-cell mui-media mui-col-xs-6">
-						<a href="#"><img class="mui-media-object" src="../img/yuantiao.jpg">
-							<div class="mui-media-body">官方网站</div>
-						</a>
-					</li>
-				</ul>
+					<div class="activity-list-box">
+						<div class="activity-list-title">学院信息</div>
+						<ul class="mui-table-view mui-grid-view">
+							<li class="mui-table-view-cell mui-media mui-col-xs-6">
+								<a href="#">
+									<img class="mui-media-object" src="../img/yuantiao.jpg">
+									<div class="mui-media-body">联系方式</div>
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-media mui-col-xs-6">
+								<a href="#">
+									<img class="mui-media-object" src="../img/yuantiao.jpg">
+									<div class="mui-media-body">学院地址</div>
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-media mui-col-xs-6">
+								<a href="#"><img class="mui-media-object" src="../img/yuantiao.jpg">
+									<div class="mui-media-body">官方网站</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
 			</div>
 		</div>
 		<script src="../js/mui.min.js"></script>
+		<script>
+			mui.init({
+				swipeBack: false,
+				pullRefresh: {
+					container: '#pullrefresh',
+					down: {
+						callback: pulldownRefresh
+					}
+				}
+			});
+			/**
+			 * 下拉刷新具体业务实现
+			 */
+			function pulldownRefresh() {
+				setTimeout(function() {
+
+					mui.alert('wangdaiqian2g')
+					mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+				}, 1000);
+			}
+			mui('.mui-table-view').on('tap', '.mui-table-view-cell', function() {
+				mui.openWindow({
+					url: 'test.html',
+					id: "test.html",
+				})
+			})
+		</script>
 	</body>
 
 </html>

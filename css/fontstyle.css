@@ -23,10 +23,20 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.icon-shezhi:before { content: "\e600";}
+
+
+.icon-shezhi:before { content: "\e600"; }
+
+.icon-shijian:before { content: "\e615"; }
+
 .icon-geren:before { content: "\e601"; }
+
+.icon-riqi:before { content: "\e602"; }
+
+.icon-asterisks-1-copy-copy:before { content: "\e62c"; }
+
 .icon-chengjiguanli:before { content: "\e672"; }
+
 .icon-kcb:before { content: "\e653"; }
+
 .icon-shouye:before { content: "\e6ea"; }
-
-
