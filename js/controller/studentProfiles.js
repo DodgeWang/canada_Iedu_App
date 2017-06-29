@@ -16,11 +16,7 @@ mui.plusReady(function() {
  * 下拉刷新具体业务实现
  */
 function pulldownRefresh() {
-	setTimeout(function() {
-
 		getStudentInfo()
-		mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
-	}, 1000);
 }
 
 function getStudentInfo() {
@@ -49,5 +45,33 @@ function getStudentInfo() {
 		} else {
 			console.log('该学生信息不存在')
 		}
+		setTimeout(function() {
+			errorBox.hide();
+		    mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+		},1000)
+		
+	},function(){
+//		document.getElementById("errorBox").style.display = 'block';
+        errorBox.show();
+		mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
 	})
 }
+
+
+var errorBox = function(){
+	if(!document.getElementById('errorBox')){
+		var pageCont = document.getElementById('pageCont');
+		var errorbox = document.createElement('div');
+		errorbox.setAttribute('id','errorBox');
+		errorbox.innerText = '服务器连接失败,请下拉刷新重试';
+		pageCont.insertBefore(errorbox,pageCont.children[0])
+	}
+	return{
+		show:function(){
+			document.getElementById('errorBox').style.display = 'block';
+		},
+		hide:function(){
+			document.getElementById('errorBox').style.display = 'none';
+		}
+	}
+}()

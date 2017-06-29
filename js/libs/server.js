@@ -6,25 +6,27 @@ var path = function() {
 	}
 }()
 
-function XHRHttpResquestFunc(url, data, method, cb) {
+function XHRHttpResquestFunc(url, data, method, cb, errorCb) {
 	mui.ajax(url, {
 		data: data, //请求参数
 		dataType: 'json', //服务器返回json格式数据
 		type: method, //HTTP请求类型
+		timeout:3000,
 		success: function(data) {
 			cb(data)
 		},
 		error: function(xhr, type, errorThrown) {
 			//异常处理；
 			console.log(type);
+			errorCb();
 		}
 	});
 }
 
 var XHRHTTPFunc = function() {
 	return {
-       getStudentInfo: function(data,cb){
-       	   XHRHttpResquestFunc(path.url_getStudentInfo, data, 'get', cb);
+       getStudentInfo: function(data,cb,errorCb){
+       	   XHRHttpResquestFunc(path.url_getStudentInfo, data, 'get', cb, errorCb);
        }
 	}
 }()
