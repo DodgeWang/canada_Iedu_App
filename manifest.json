@@ -204,10 +204,12 @@
 			},
 			"tpls/menu.html": {
 				"resources": [
-					"fonts/mui.ttf"
+					"fonts/mui.ttf",
+					"img/girl.png"
 				],
 				"refer": [
-					"tpls/login.html"
+					"tpls/login.html",
+					"tpls/password.html"
 				],
 				"priority": 0
 			},
@@ -263,7 +265,8 @@
 					"js/mui.min.js",
 					"fonts/mui.ttf",
 					"css/mui.min.css",
-					"css/style.css"
+					"css/style.css",
+					"css/fontstyle.css"
 				],
 				"refer": [],
 				"priority": 0
@@ -290,7 +293,6 @@
 				"js/mui.js",
 				"css/mui.css",
 				"tpls/index_copy.html",
-				"img/girl.png",
 				"tpls/test.html"
 			]
 		}

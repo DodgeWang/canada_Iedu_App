@@ -9,7 +9,8 @@
 		<link href="../css/style.css" rel="stylesheet" />
 		<link href="../css/fontstyle.css" rel="stylesheet" />
 		<style>
-			body,.mui-content{
+			body,
+			.mui-content {
 				background: #FFFFFF;
 			}
 		</style>
@@ -38,19 +39,9 @@
 			</div>
 		</div>
 
-		<script src="../js/mui.min.js"></script>
-		<script type="text/javascript">
-		    	   mui.plusReady(function() {
-				plus.navigator.setStatusBarBackground("#021e4a");
-				plus.navigator.setStatusBarStyle("UIStatusBarStyleBlackOpaque");
-		    	   })
-			document.getElementById('login-sub').addEventListener('tap',function(){
-				mui.openWindow({
-					url:'index.html',
-					id:'index'
-				})
-			})
-		</script>
+		<script src="../js/library/mui.min.js"></script>
+		<script src='../js/libs/server.js'></script>
+		<script type="text/javascript" src="../js/controller/login.js" ></script>
 	</body>
 
 </html>

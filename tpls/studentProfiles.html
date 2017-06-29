@@ -8,27 +8,38 @@
 		<link href="../css/mui.min.css" rel="stylesheet" />
 		<link href="../css/style.css" rel="stylesheet" />
 		<link href="../css/fontstyle.css" rel="stylesheet" />
+		<style>
+			body,.mui-scroll-wrapper,.mui-content{
+				background: #FFFFFF;
+			}
+		</style>
 	</head>
 
 	<body style="background: #FFFFFF;">
-		<div class="mui-content" style="background: #FFFFFF;">
-			<div class="profile-box-one">
-				<img src="../img/boy.png" width="30%">
-				<h4>学生姓名（英文）</h4>
-				<p class="student-name">given_name surname</p>
-				<div class="partingLine"></div>
-			</div>
-			<ul class="profile-list">
-				<li><span class="profile-font icon-xinghao"></span><span>学号</span><span>student_num</span></li>
-				<li><span class="profile-font icon-xinghao"></span><span>年级</span><span>grade</span></li>
-				<li><span class="profile-font icon-xinghao"></span><span>性别</span><span>gender</span></li>
-				<li><span class="profile-font icon-xinghao"></span><span>生日</span><span>birthday</span></li>
-				<li><span class="profile-font icon-xinghao"></span><span>OEN学号</span><span>oen_num</span></li>
-				<li><span class="profile-font icon-xinghao"></span><span>导师</span><span>advisory_group</span></li>
-			</ul>
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<div class="mui-content">
+					<div class="profile-box-one">
+						<img src="../img/boy.png" width="30%" id="headImg">
+						<h4>学生姓名（英文）</h4>
+						<p class="student-name" id="name">given_name surname</p>
+						<div class="partingLine"></div>
+					</div>
+					<ul class="profile-list">
+						<li><span class="profile-font icon-xinghao"></span><span>学号</span><span id="student_num">student_num</span></li>
+						<li><span class="profile-font icon-xinghao"></span><span>年级</span><span id="grade">grade</span></li>
+						<li><span class="profile-font icon-xinghao"></span><span>性别</span><span id="gender">gender</span></li>
+						<li><span class="profile-font icon-xinghao"></span><span>生日</span><span id="birthday">birthday</span></li>
+						<li><span class="profile-font icon-xinghao"></span><span>OEN学号</span><span id="oen_num">oen_num</span></li>
+						<li><span class="profile-font icon-xinghao"></span><span>导师</span><span id="advisory_group">advisory_group</span></li>
+					</ul>
 
+				</div>
+			</div>
 		</div>
-		<script src="../js/mui.min.js"></script>
+		<script src="../js/library/mui.min.js"></script>
+		<script type="text/javascript" src="../js/libs/server.js"></script>
+		<script src="../js/controller/studentProfiles.js"></script>
 	</body>
 
 </html>
