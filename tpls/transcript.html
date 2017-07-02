@@ -13,70 +13,40 @@
 		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
 			<div class="mui-scroll">
 				<div class="mui-content" id="pageCont">
-					<div class="mui-card">
-						<div class="mui-card-header">No.1</div>
-						<div class="mui-card-content">
-							<div class="mui-card-content-inner">
-								<ul class="transcript-info">
-									<li>
-										<div class="fl"><span>课程代码：</span>0202220202</div>
-										<div class="fr"><span>课程名：</span>物理学</div>
-									</li>
-									<li>
-										<div class="fr"><span>平均成绩：</span>98.99</div>
-									</li>
-								</ul>
+					<div id="markList">
+						<!--<div class="mui-card">
+							<div class="mui-card-header">No.1</div>
+							<div class="mui-card-content">
+								<div class="mui-card-content-inner">
+									<ul class="transcript-info">
+										<li>
+											<div class="fl"><span>课程代码：</span>0202220202</div>
+											<div class="fr"><span>课程名：</span>物理学</div>
+										</li>
+										<li>
+											<div class="fr"><span>平均成绩：</span>98.99</div>
+										</li>
+									</ul>
+								</div>
 							</div>
-						</div>
-					</div>
-					<div class="mui-card">
-						<div class="mui-card-header">No.2</div>
-						<div class="mui-card-content">
-							<div class="mui-card-content-inner">
-								<ul class="transcript-info">
-									<li>
-										<div class="fl"><span>课程代码：</span>0202220202</div>
-										<div class="fr"><span>课程名：</span>物理学</div>
-									</li>
-									<li>
-										<div class="fr"><span>平均成绩：</span>98.99</div>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="mui-card">
-						<div class="mui-card-header">No.3</div>
-						<div class="mui-card-content">
-							<div class="mui-card-content-inner">
-								<ul class="transcript-info">
-									<li>
-										<div class="fl"><span>课程代码：</span>0202220202</div>
-										<div class="fr"><span>课程名：</span>物理学</div>
-									</li>
-									<li>
-										<div class="fr"><span>平均成绩：</span>98.99</div>
-									</li>
-								</ul>
-							</div>
-						</div>
+						</div>-->
 					</div>
 
-					<div class="mui-card">
+					<div class="mui-card" id="">
 						<div class="mui-card-content">
 							<div class="mui-card-content-inner">
 								<ul class="transcript-info" style="font-size: 14px;">
 									<li>
 										<div class="fl"><span>已得学分</span></div>
-										<div class="fr">268.00</div>
+										<div class="fr" id='accumulatedCredit'>0</div>
 									</li>
 									<li>
 										<div class="fl"><span>毕业要求学分</span></div>
-										<div class="fr">300.00</div>
+										<div class="fr" id='shouldIntegral'>0</div>
 									</li>
 									<li>
 										<div class="fl"><span>差距</span></div>
-										<div class="fr">32.00</div>
+										<div class="fr" id="disparity">32.00</div>
 									</li>
 								</ul>
 							</div>
@@ -86,24 +56,9 @@
 			</div>
 		</div>
 		<script src="../js/library/mui.min.js"></script>
+		<script type="text/javascript" src="../js/libs/server.js"></script>
+		<script type="text/javascript" src="../js/controller/transcript.js"></script>
 		<script>
-			mui.init({
-				swipeBack: false,
-				pullRefresh: {
-					container: '#pullrefresh',
-					down: {
-						callback: pulldownRefresh
-					}
-				}
-			});
-			/**
-			 * 下拉刷新具体业务实现
-			 */
-			function pulldownRefresh() {
-				setTimeout(function() {
-					mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
-				}, 1000);
-			}
 		</script>
 	</body>
 
