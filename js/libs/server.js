@@ -1,6 +1,6 @@
 "use strict" //使用严格模式编写js
 var path = function() {
-	var SERVER_URL = "http://192.168.1.3:3000";
+	var SERVER_URL = "http://192.168.1.69:3000";
 	return {
 		url_getStudentInfo: SERVER_URL + '/api/studentInfo', //根据学生ID获取学生信息
 		url_getStudentMark: SERVER_URL + "/api/studentMark" //获取学生成绩
@@ -32,5 +32,24 @@ var XHRHTTPFunc = function() {
        getStudentMark: function(data,cb,errorCb){
        	   XHRHttpResquestFunc(path.url_getStudentMark, data, 'get', cb, errorCb);
        }
+	}
+}()
+
+
+var errorBox = function(){
+	if(!document.getElementById('errorBox')){
+		var pageCont = document.getElementById('pageCont');
+		var errorbox = document.createElement('div');
+		errorbox.setAttribute('id','errorBox');
+		errorbox.innerText = '服务器连接失败,请下拉刷新重试';
+		pageCont.insertBefore(errorbox,pageCont.children[0])
+	}
+	return{
+		show:function(){
+			document.getElementById('errorBox').style.display = 'block';
+		},
+		hide:function(){
+			document.getElementById('errorBox').style.display = 'none';
+		}
 	}
 }()

@@ -70,20 +70,3 @@ function getMark() {
 }
 
 
-var errorBox = function(){
-	if(!document.getElementById('errorBox')){
-		var pageCont = document.getElementById('pageCont');
-		var errorbox = document.createElement('div');
-		errorbox.setAttribute('id','errorBox');
-		errorbox.innerText = '服务器连接失败,请下拉刷新重试';
-		pageCont.insertBefore(errorbox,pageCont.children[0])
-	}
-	return{
-		show:function(){
-			document.getElementById('errorBox').style.display = 'block';
-		},
-		hide:function(){
-			document.getElementById('errorBox').style.display = 'none';
-		}
-	}
-}()
