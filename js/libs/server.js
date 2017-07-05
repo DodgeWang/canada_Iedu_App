@@ -3,6 +3,7 @@ var path = function() {
 	var SERVER_URL = "http://192.168.1.69:3000";
 	return {
 		url_login: SERVER_URL + '/api/login', //用户登陆
+		url_resetPassword: SERVER_URL + "/api/resetPassword", //修改密码
 		url_getStudentInfo: SERVER_URL + '/api/studentInfo', //根据学生ID获取学生信息
 		url_getStudentMark: SERVER_URL + "/api/studentMark", //获取学生成绩
 		url_getlessonList: SERVER_URL + "/api/lessonList", //获取学生课程列表
@@ -31,6 +32,9 @@ var XHRHTTPFunc = function() {
 	return {
 		userLogin: function(data, cb, errorCb) {
 			XHRHttpResquestFunc(path.url_login, data, 'post', cb, errorCb);
+		},
+		resetPassword: function(data, cb, errorCb) {
+			XHRHttpResquestFunc(path.url_resetPassword, data, 'post', cb, errorCb);
 		},
 		getStudentInfo: function(data, cb, errorCb) {
 			XHRHttpResquestFunc(path.url_getStudentInfo, data, 'get', cb, errorCb);
