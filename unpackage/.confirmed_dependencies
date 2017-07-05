@@ -1,87 +1,87 @@
 {
-	"tpls/home.html": {
-		"resources": [
-			"img/banner1.jpg",
-			"img/yuantiao.jpg"
-		],
-		"refer": [
-			"tpls/webPage.html"
-		]
-	},
-	"tpls/menu.html": {
-		"resources": [
-			"fonts/mui.ttf",
-			"img/girl.png"
-		],
-		"refer": [
-			"tpls/login.html",
-			"tpls/password.html"
-		]
-	},
-	"tpls/studentProfiles.html": {
-		"resources": [
-			"img/boy.png",
-			"js/mui.min.js",
-			"css/fontstyle.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"fonts/iconfont.woff"
-		],
-		"refer": []
-	},
-	"tpls/index.html": {
-		"resources": [
-			"tpls/home.html",
-			"js/mui.min.js",
-			"css/fontstyle.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"fonts/iconfont.woff",
-			"fonts/mui.ttf"
-		],
-		"refer": [
-			"tpls/home.html",
-			"tpls/menu.html",
-			"tpls/courseBook.html",
-			"tpls/transcript.html",
-			"tpls/studentProfiles.html"
-		]
-	},
-	"tpls/webPage.html": {
-		"resources": [
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"css/style.css"
-		],
-		"refer": []
-	},
-	"tpls/courseBook.html": {
-		"refer": [
-			"tpls/courseInfo.html"
-		],
-		"resources": []
-	},
-	"tpls/courseInfo.html": {
-		"resources": [
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"css/style.css",
-			"css/fontstyle.css"
-		],
-		"refer": []
-	},
-	"tpls/login.html": {
-		"resources": [
-			"js/mui.min.js",
-			"css/mui.min.css",
-			"css/fontstyle.css",
-			"css/style.css",
-			"fonts/iconfont.woff"
-		],
-		"refer": [
-			"tpls/index.html"
-		]
-	}
+  "tpls/home.html": {
+    "resources": [
+      "img/banner1.jpg",
+      "img/yuantiao.jpg"
+    ],
+    "refer": [
+      "tpls/webPage.html"
+    ]
+  },
+  "tpls/menu.html": {
+    "resources": [
+      "fonts/mui.ttf",
+      "img/girl.png"
+    ],
+    "refer": [
+      "tpls/login.html",
+      "tpls/password.html"
+    ]
+  },
+  "tpls/studentProfiles.html": {
+    "resources": [
+      "img/boy.png",
+      "js/mui.min.js",
+      "css/fontstyle.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "fonts/iconfont.woff"
+    ],
+    "refer": []
+  },
+  "tpls/index.html": {
+    "resources": [
+      "tpls/home.html",
+      "js/mui.min.js",
+      "css/fontstyle.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "fonts/iconfont.woff",
+      "fonts/mui.ttf"
+    ],
+    "refer": [
+      "tpls/home.html",
+      "tpls/menu.html",
+      "tpls/courseBook.html",
+      "tpls/transcript.html",
+      "tpls/studentProfiles.html"
+    ]
+  },
+  "tpls/webPage.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/style.css"
+    ],
+    "refer": []
+  },
+  "tpls/courseBook.html": {
+    "refer": [
+      "tpls/courseInfo.html"
+    ],
+    "resources": []
+  },
+  "tpls/courseInfo.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/style.css",
+      "css/fontstyle.css"
+    ],
+    "refer": []
+  },
+  "tpls/login.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "css/fontstyle.css",
+      "css/style.css",
+      "fonts/iconfont.woff"
+    ],
+    "refer": [
+      "tpls/index.html"
+    ]
+  }
 }

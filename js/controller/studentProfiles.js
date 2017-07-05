@@ -20,14 +20,26 @@ function pulldownRefresh() {
 }
 
 function getStudentInfo() {
+	var user = JSON.parse(plus.storage.getItem('user'))
 	var param = {
-		studentId: 8
+		studentId: user.studentId
 	}
 
 	XHRHTTPFunc.getStudentInfo(param, function(obj) {
-		console.log('wangdaiqiang:' + JSON.stringify(obj));
-
-		if(obj.status.code !== 0) return console.log(obj.status.msg);
+//		console.log('wangdaiqiang:' + JSON.stringify(obj));
+		if(obj.status.code !== 0) {
+			mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+			mui.alert(obj.status.msg, '提示', '确定', function() {
+				if(obj.status.code === 5){
+					plus.storage.clear();
+				    mui.openWindow({
+					  url: 'login.html',
+					  id: "login"
+				    })
+				}
+			}, 'div')
+			return;
+		}
 
 		if(obj.data !== null) {
 			document.getElementById('name').innerText = obj.data.surname + obj.data.given_name;

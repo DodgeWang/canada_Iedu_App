@@ -2,8 +2,11 @@
 var path = function() {
 	var SERVER_URL = "http://192.168.1.69:3000";
 	return {
+		url_login: SERVER_URL + '/api/login', //用户登陆
 		url_getStudentInfo: SERVER_URL + '/api/studentInfo', //根据学生ID获取学生信息
-		url_getStudentMark: SERVER_URL + "/api/studentMark" //获取学生成绩
+		url_getStudentMark: SERVER_URL + "/api/studentMark", //获取学生成绩
+		url_getlessonList: SERVER_URL + "/api/lessonList", //获取学生课程列表
+		url_getlessonInfo: SERVER_URL + "/api/lessonInfo" //获取学生课程信息详情
 	}
 }()
 
@@ -12,7 +15,7 @@ function XHRHttpResquestFunc(url, data, method, cb, errorCb) {
 		data: data, //请求参数
 		dataType: 'json', //服务器返回json格式数据
 		type: method, //HTTP请求类型
-		timeout:3000,
+		timeout: 3000,
 		success: function(data) {
 			cb(data)
 		},
@@ -26,29 +29,41 @@ function XHRHttpResquestFunc(url, data, method, cb, errorCb) {
 
 var XHRHTTPFunc = function() {
 	return {
-       getStudentInfo: function(data,cb,errorCb){
-       	   XHRHttpResquestFunc(path.url_getStudentInfo, data, 'get', cb, errorCb);
-       },
-       getStudentMark: function(data,cb,errorCb){
-       	   XHRHttpResquestFunc(path.url_getStudentMark, data, 'get', cb, errorCb);
-       }
+		userLogin: function(data, cb, errorCb) {
+			XHRHttpResquestFunc(path.url_login, data, 'post', cb, errorCb);
+		},
+		getStudentInfo: function(data, cb, errorCb) {
+			XHRHttpResquestFunc(path.url_getStudentInfo, data, 'get', cb, errorCb);
+		},
+		getStudentMark: function(data, cb, errorCb) {
+			XHRHttpResquestFunc(path.url_getStudentMark, data, 'get', cb, errorCb);
+		},
+		getLessonList: function(data, cb, errorCb) {
+			XHRHttpResquestFunc(path.url_getlessonList, data, 'get', cb, errorCb);
+		},
+		getlessonInfo: function(data, cb, errorCb) {
+			XHRHttpResquestFunc(path.url_getlessonInfo, data, 'get', cb, errorCb);
+		}
 	}
 }()
 
-
-var errorBox = function(){
-	if(!document.getElementById('errorBox')){
-		var pageCont = document.getElementById('pageCont');
-		var errorbox = document.createElement('div');
-		errorbox.setAttribute('id','errorBox');
-		errorbox.innerText = '服务器连接失败,请下拉刷新重试';
-		pageCont.insertBefore(errorbox,pageCont.children[0])
+var errorBox = function() {
+	function errorDom() {
+		if(!document.getElementById('errorBox')) {
+			var pageCont = document.getElementById('pageCont');
+			var errorbox = document.createElement('div');
+			errorbox.setAttribute('id', 'errorBox');
+			errorbox.innerText = '服务器连接失败,请下拉刷新重试';
+			pageCont.insertBefore(errorbox, pageCont.children[0])
+		}
 	}
-	return{
-		show:function(){
+	return {
+		show: function() {
+			errorDom()
 			document.getElementById('errorBox').style.display = 'block';
 		},
-		hide:function(){
+		hide: function() {
+			errorDom()
 			document.getElementById('errorBox').style.display = 'none';
 		}
 	}

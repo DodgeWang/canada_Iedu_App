@@ -20,133 +20,44 @@
 		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
 			<div class="mui-scroll">
 				<div class="mui-content" id="pageCont">
-					<div class="mui-card">
-						<!--<div class="mui-card-header">No.1</div>-->
-						<div class="courselist-header">
-							<span class="courselist-num">No.1</span>
-							<span class="courselist-code">课程代码：347593759</span>
-						</div>
-						<div class="mui-card-content">
-							<div class="mui-card-content-inner">
-								<ul class="courseBooklist">
-									<li>
-										<span class="font-icon icon-shijian"></span><span>13:00-17:00</span>
-									</li>
-									<li>
-										<span class="font-icon icon-riqi"></span><span>03/13/2015-10/13/2015</span>
-									</li>
-								</ul>
+					<div id="lessonlist">
+						<!--<div class="mui-card">
+							<div class="courselist-header">
+								<span class="courselist-num">No.3</span>
+								<span class="courselist-code">课程代码：347593759</span>
 							</div>
-						</div>
-						<div class="week-box">
-							<div class="week-name">Every Week</div>
-							<div class="week-list">
-								<span>S</span>
-								<span class="weekactive">M</span>
-								<span>T</span>
-								<span>W</span>
-								<span class="weekactive">T</span>
-								<span>F</span>
-								<span>S</span>
+							<div class="mui-card-content">
+								<div class="mui-card-content-inner">
+									<ul class="courseBooklist">
+										<li>
+											<span class="font-icon icon-shijian"></span><span>13:00-17:00</span>
+										</li>
+										<li>
+											<span class="font-icon icon-riqi"></span><span>03/13/2015-10/13/2015</span>
+										</li>
+									</ul>
+								</div>
 							</div>
-						</div>
+							<div class="week-box">
+								<div class="week-name">Every Week</div>
+								<div class="week-list">
+									<span>S</span>
+									<span class="weekactive">M</span>
+									<span>T</span>
+									<span>W</span>
+									<span class="weekactive">T</span>
+									<span>F</span>
+									<span>S</span>
+								</div>
+							</div>
+						</div>-->
 					</div>
-
-					<div class="mui-card">
-						<!--<div class="mui-card-header">No.1</div>-->
-						<div class="courselist-header">
-							<span class="courselist-num">No.2</span>
-							<span class="courselist-code">课程代码：347593759</span>
-						</div>
-						<div class="mui-card-content">
-							<div class="mui-card-content-inner">
-								<ul class="courseBooklist">
-									<li>
-										<span class="font-icon icon-shijian"></span><span>13:00-17:00</span>
-									</li>
-									<li>
-										<span class="font-icon icon-riqi"></span><span>03/13/2015-10/13/2015</span>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="week-box">
-							<div class="week-name">Every Week</div>
-							<div class="week-list">
-								<span>S</span>
-								<span class="weekactive">M</span>
-								<span>T</span>
-								<span>W</span>
-								<span class="weekactive">T</span>
-								<span>F</span>
-								<span>S</span>
-							</div>
-						</div>
-					</div>
-
-					<div class="mui-card">
-						<!--<div class="mui-card-header">No.1</div>-->
-						<div class="courselist-header">
-							<span class="courselist-num">No.3</span>
-							<span class="courselist-code">课程代码：347593759</span>
-						</div>
-						<div class="mui-card-content">
-							<div class="mui-card-content-inner">
-								<ul class="courseBooklist">
-									<li>
-										<span class="font-icon icon-shijian"></span><span>13:00-17:00</span>
-									</li>
-									<li>
-										<span class="font-icon icon-riqi"></span><span>03/13/2015-10/13/2015</span>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="week-box">
-							<div class="week-name">Every Week</div>
-							<div class="week-list">
-								<span>S</span>
-								<span class="weekactive">M</span>
-								<span>T</span>
-								<span>W</span>
-								<span class="weekactive">T</span>
-								<span>F</span>
-								<span>S</span>
-							</div>
-						</div>
-					</div>
-
 				</div>
 			</div>
 		</div>
 		<script src="../js/library/mui.min.js"></script>
-		<script>
-			mui.init({
-				swipeBack: false,
-				pullRefresh: {
-					container: '#pullrefresh',
-					down: {
-						callback: pulldownRefresh
-					}
-				}
-			});
-			/**
-			 * 下拉刷新具体业务实现
-			 */
-			function pulldownRefresh() {
-				setTimeout(function() {
-
-					mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
-				}, 1000);
-			}
-
-			mui('.mui-content').on('tap', '.mui-card', function() {
-				mui.openWindow({
-					url: 'courseInfo.html',
-					id: "courseInfo"
-				})
-			})
-		</script>
+		<script type="text/javascript" src="../js/libs/server.js"></script>
+		<script type="text/javascript" src="../js/controller/courseBook.js"></script>
 
 	</body>
 
