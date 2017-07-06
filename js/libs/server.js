@@ -4,10 +4,12 @@ var path = function() {
 	return {
 		url_login: SERVER_URL + '/api/login', //用户登陆
 		url_resetPassword: SERVER_URL + "/api/resetPassword", //修改密码
+		url_logOut: SERVER_URL + "/api/logOut", //退出登录
 		url_getStudentInfo: SERVER_URL + '/api/studentInfo', //根据学生ID获取学生信息
 		url_getStudentMark: SERVER_URL + "/api/studentMark", //获取学生成绩
 		url_getlessonList: SERVER_URL + "/api/lessonList", //获取学生课程列表
-		url_getlessonInfo: SERVER_URL + "/api/lessonInfo" //获取学生课程信息详情
+		url_getlessonInfo: SERVER_URL + "/api/lessonInfo", //获取学生课程信息详情
+		url_indexActivity: SERVER_URL + "/api/homeActivity" //获取首页展示活动
 	}
 }()
 
@@ -33,6 +35,9 @@ var XHRHTTPFunc = function() {
 		userLogin: function(data, cb, errorCb) {
 			XHRHttpResquestFunc(path.url_login, data, 'post', cb, errorCb);
 		},
+		logOut: function(cb, errorCb) {
+			XHRHttpResquestFunc(path.url_logOut, {}, 'get', cb, errorCb);
+		},
 		resetPassword: function(data, cb, errorCb) {
 			XHRHttpResquestFunc(path.url_resetPassword, data, 'post', cb, errorCb);
 		},
@@ -47,6 +52,9 @@ var XHRHTTPFunc = function() {
 		},
 		getlessonInfo: function(data, cb, errorCb) {
 			XHRHttpResquestFunc(path.url_getlessonInfo, data, 'get', cb, errorCb);
+		},
+		indexActivity: function(cb, errorCb) {
+			XHRHttpResquestFunc(path.url_indexActivity, {}, 'get', cb, errorCb);
 		}
 	}
 }()

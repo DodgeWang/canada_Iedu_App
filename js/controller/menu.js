@@ -17,16 +17,31 @@ function closeMenu() {
 //左滑显示出来的菜单，只需监听右滑，然后将菜单关闭即可；在该菜单上左滑，不做任何操作；
 window.addEventListener("swiperight", closeMenu);
 
+//退出登录
 document.getElementById("logOut").addEventListener('tap', function() {
-	mui.openWindow({
-		url: 'login.html',
-		id: 'login',
-		show: {
-			aniShow: "slide-in-left"
-		}
+	XHRHTTPFunc.logOut(function(obj) {
+		mui.openWindow({
+			url: 'login.html',
+			id: 'login',
+			show: {
+				aniShow: "slide-in-left"
+			}
+		})
+		mui.fire(main, "menu:swiperight");
+	}, function() {
+		mui.openWindow({
+			url: 'login.html',
+			id: 'login',
+			show: {
+				aniShow: "slide-in-left"
+			}
+		})
+		mui.fire(main, "menu:swiperight");
 	})
-	mui.fire(main, "menu:swiperight");
+
 })
+
+//打开修改密码页面
 document.getElementById("password").addEventListener('tap', function() {
 	mui.openWindow({
 		url: 'password.html',
@@ -37,7 +52,6 @@ document.getElementById("password").addEventListener('tap', function() {
 	})
 	mui.fire(main, "menu:swiperight");
 })
-
 
 var user = JSON.parse(plus.storage.getItem('user'));
 document.getElementById('userName').innerText = user.username;
