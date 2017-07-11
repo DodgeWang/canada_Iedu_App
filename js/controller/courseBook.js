@@ -10,6 +10,7 @@ mui.init({
 
 mui.plusReady(function() {
 	getLessonList();
+	
 })
 
 /**
@@ -22,7 +23,7 @@ function pulldownRefresh() {
 function getLessonList() {
 	var user = JSON.parse(plus.storage.getItem('user'))
 	var param = {
-		studentId: user.studentId
+		studentNum: user.studentNum
 	}
 	XHRHTTPFunc.getLessonList(param, function(obj) {
 //		console.log("thisData", JSON.stringify(obj));
@@ -31,10 +32,7 @@ function getLessonList() {
 			mui.alert(obj.status.msg, '提示', '确定', function() {
 				if(obj.status.code === 5){
 					plus.storage.clear();
-				    mui.openWindow({
-					  url: 'login.html',
-					  id: "login"
-				    })
+				    gotoLogin();
 				}
 			}, 'div')
 			return;
@@ -101,3 +99,13 @@ mui('.mui-content').on('tap', '.mui-card', function() {
 		}
 	})
 })
+
+
+
+//返回登录页面，关闭除登录页面的其他webview
+function gotoLogin() {
+	var viewList = ["index", "menu"];
+	for(var i = 0; i < viewList.length; i++) {
+		plus.webview.close(viewList[i],"slide-out-right")
+	}
+}

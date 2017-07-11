@@ -19,27 +19,22 @@ window.addEventListener("swiperight", closeMenu);
 
 //退出登录
 document.getElementById("logOut").addEventListener('tap', function() {
+
 	XHRHTTPFunc.logOut(function(obj) {
-		mui.openWindow({
-			url: 'login.html',
-			id: 'login',
-			show: {
-				aniShow: "slide-in-left"
-			}
-		})
-		mui.fire(main, "menu:swiperight");
+       gotoLogin()
 	}, function() {
-		mui.openWindow({
-			url: 'login.html',
-			id: 'login',
-			show: {
-				aniShow: "slide-in-left"
-			}
-		})
-		mui.fire(main, "menu:swiperight");
+       gotoLogin()
 	})
 
 })
+
+//返回登录页面，关闭除登录页面的其他webview
+function gotoLogin() {
+	var viewList = ["index", "menu"];
+	for(var i = 0; i < viewList.length; i++) {
+		plus.webview.close(viewList[i],"slide-out-right")
+	}
+}
 
 //打开修改密码页面
 document.getElementById("password").addEventListener('tap', function() {

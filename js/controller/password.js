@@ -14,10 +14,7 @@ document.getElementById('subbtn').addEventListener('tap', function() {
 			mui.alert(obj.status.msg, '提示', '确定', function() {
 				if(obj.status.code === 5) {
 					plus.storage.clear();
-					mui.openWindow({
-						url: 'login.html',
-						id: "login"
-					})
+                    gotoLogin()
 				}
 			}, 'div')
 			return;
@@ -25,10 +22,7 @@ document.getElementById('subbtn').addEventListener('tap', function() {
 
 		mui.alert("密码修改成功，返回重新登陆", '提示', '确定', function() {
 			plus.storage.clear();
-			mui.openWindow({
-				url: 'login.html',
-				id: "login"
-			})
+			gotoLogin();
 		}, 'div')
 
 	}, function() {
@@ -42,4 +36,13 @@ function isNull(str) {
 	var regu = "^[ ]+$";
 	var re = new RegExp(regu);
 	return re.test(str);
+}
+
+
+//返回登录页面，关闭除登录页面的其他webview
+function gotoLogin() {
+	var viewList = ["index", "menu","password"];
+	for(var i = 0; i < viewList.length; i++) {
+		plus.webview.close(viewList[i],"slide-out-right")
+	}
 }
