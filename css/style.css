@@ -243,15 +243,20 @@
 }
 
 .logo-box{
-	margin-top: 50%;
-	margin-bottom: 50px;
+	margin-top: 30%;
+	margin-bottom: 30px;
+	width: 100%;
+	text-align: center;
 }
 .logo-box p{
 	text-align: center;
-	font-size: 22px;
+	font-size: 18px;
 	color: #021e4a;
 	font-weight: 500;
-	
+}
+.logo-box img{
+	width: 50%;
+	margin-bottom: 10px;
 }
 .login-form {
 	/*margin-top: 70%;*/

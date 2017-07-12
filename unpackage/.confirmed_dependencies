@@ -101,7 +101,8 @@
 			"fonts/iconfont.woff",
 			"js/controller/login.js",
 			"js/libs/server.js",
-			"js/library/mui.min.js"
+			"js/library/mui.min.js",
+			"img/logo.png"
 		],
 		"refer": [
 			"tpls/index.html"
