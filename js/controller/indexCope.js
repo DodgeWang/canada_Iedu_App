@@ -21,20 +21,29 @@ function back() {
 }
 /*侧边栏*/
 
+var subpages = ['home.html', 'courseBook.html', 'transcript.html', 'studentProfiles.html'];
 var subpage_style = {
 	top: '44px',
 	bottom: '51px'
 };
-
-
-
+var aniShow = {};
 
 mui.plusReady(function() {
 	plus.navigator.setStatusBarBackground("#021e4a");
 	plus.navigator.setStatusBarStyle("UIStatusBarStyleBlackOpaque");
+
 	self = plus.webview.currentWebview();
-	var sub = plus.webview.create('home.html', 'home.html', subpage_style);
-	self.append(sub);
+	for(var i = 0; i < 4; i++) {
+		var temp = {};
+		var sub = plus.webview.create(subpages[i], subpages[i], subpage_style);
+		if(i > 0) {
+			sub.hide();
+		} else {
+			temp[subpages[i]] = "true";
+			mui.extend(aniShow, temp);
+		}
+		self.append(sub);
+	}
 
 	/*侧边栏*/
 	setTimeout(function() {
@@ -52,51 +61,31 @@ mui.plusReady(function() {
 
 })
 
-
-
-
 //当前激活选项
-var viewList = [];
-viewList.push('home.html');
-var activeTab = viewList[0];
+var activeTab = subpages[0];
+var title = document.getElementById("title");
 //选项卡点击事件
 mui('.mui-bar-tab').on('tap', 'a', function(e) {
 	var targetTab = this.getAttribute('href');
 	if(targetTab == activeTab) {
 		return;
 	}
-	
-	var isHad = false;
-	for(var i=0; i<viewList.length;i++){
-		if(viewList[i] === targetTab){
-			isHad = true;
-			break;
-		} 
-	}
-	if(isHad == false){
-		var sub = plus.webview.create(targetTab, targetTab, subpage_style);
-	    self.append(sub);
-	    viewList.push(targetTab)
-	}
 	//显示目标选项卡
-	//若为iOS平台，则直接显示
-	if(mui.os.ios) {
+	//若为iOS平台或非首次显示，则直接显示
+	if(mui.os.ios || aniShow[targetTab]) {
 		plus.webview.show(targetTab);
 	} else {
-//		//否则，使用fade-in动画
+		//否则，使用fade-in动画，且保存变量
+		var temp = {};
+		temp[targetTab] = "true";
+		mui.extend(aniShow, temp);
 		plus.webview.show(targetTab, "fade-in", 300);
 	}
-//	//隐藏当前;
+	//隐藏当前;
 	plus.webview.hide(activeTab);
 	//更改当前活跃的选项卡
 	activeTab = targetTab;
 });
-
-
-
-
-
-
 //自定义事件，模拟点击“首页选项卡”
 document.addEventListener('gohome', function() {
 	var defaultTab = document.getElementById("defaultTab");

@@ -8,28 +8,32 @@ mui.init({
 	}
 });
 
-var self = plus.webview.currentWebview();
-var pNum = self.pNum;
-getLessonInfo()
+mui.plusReady(function() {
+	getLessonInfo(0)
+})
 
+/**
+ * 下拉刷新具体业务实现
+ */
 function pulldownRefresh() {
-	getLessonInfo()
+		getLessonInfo(1)
 }
 
-function getLessonInfo() {
+function getLessonInfo(type) {
 	var user = JSON.parse(plus.storage.getItem('user'))
+	var self = plus.webview.currentWebview();
+	var pNum = self.pNum;
 	var param = {
 		studentNum: user.studentNum,
 		pNum: pNum
 	}
 	XHRHTTPFunc.getlessonInfo(param, function(obj) {
-//		console.log('thisData:' + JSON.stringify(obj));
 		if(obj.status.code !== 0) {
 			mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
 			mui.alert(obj.status.msg, '提示', '确定', function() {
-				if(obj.status.code === 5){
+				if(obj.status.code === 5) {
 					plus.storage.clear();
-				    gotoLogin()
+					gotoLogin()
 				}
 			}, 'div')
 			return;
@@ -43,7 +47,7 @@ function getLessonInfo() {
 			document.getElementById('absence').innerText = obj.data.absence;
 			document.getElementById('late').innerText = obj.data.late;
 			var weekly = obj.data.weekly.split(",");
-			var weekStr = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+			var weekStr = ['一', '二', '三', '四', '五', '六', '日'];
 			var weekDom = "";
 			for(var s = 0; s < weekStr.length; s++) {
 				if(weekly.indexOf((s + 1).toString()) > -1) {
@@ -57,21 +61,25 @@ function getLessonInfo() {
 		} else {
 			console.log('信息为空')
 		}
-		setTimeout(function() {
-			errorBox.hide();
-			mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
-		}, 1000)
+		if(type === 1) {
+			setTimeout(function() {
+				errorBox.hide();
+				mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+			}, 1000)
+		}
 
 	}, function() {
 		errorBox.show();
-		mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+		if(type === 1) {
+			mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+		}
 	})
 }
 
 //返回登录页面，关闭除登录页面的其他webview
 function gotoLogin() {
-	var viewList = ["index", "menu","courseInfo"];
+	var viewList = ["index", "menu", "courseInfo"];
 	for(var i = 0; i < viewList.length; i++) {
-		plus.webview.close(viewList[i],"slide-out-right")
+		plus.webview.close(viewList[i], "slide-out-right", 300)
 	}
 }

@@ -8,6 +8,8 @@ mui.init({
 var main = null;
 mui.plusReady(function() {
 	main = plus.webview.currentWebview().opener();
+	var user = JSON.parse(plus.storage.getItem('user'));
+    document.getElementById('userName').innerText = user.username;
 })
 
 function closeMenu() {
@@ -32,7 +34,7 @@ document.getElementById("logOut").addEventListener('tap', function() {
 function gotoLogin() {
 	var viewList = ["index", "menu"];
 	for(var i = 0; i < viewList.length; i++) {
-		plus.webview.close(viewList[i],"slide-out-right")
+		plus.webview.close(viewList[i],"slide-out-right",300)
 	}
 }
 
@@ -48,5 +50,3 @@ document.getElementById("password").addEventListener('tap', function() {
 	mui.fire(main, "menu:swiperight");
 })
 
-var user = JSON.parse(plus.storage.getItem('user'));
-document.getElementById('userName').innerText = user.username;

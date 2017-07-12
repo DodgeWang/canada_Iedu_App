@@ -33,7 +33,7 @@ function pulldownRefresh() {
 //获取首页活动
 function getActivity() {
 	XHRHTTPFunc.indexActivity(function(obj) {
-//		console.log("thisData", JSON.stringify(obj));
+		console.log("thisData", JSON.stringify(obj));
 		if(obj.status.code !== 0) {
 			mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
 			mui.alert(obj.status.msg, '提示', '确定', function() {
@@ -83,6 +83,6 @@ function getActivity() {
 function gotoLogin() {
 	var viewList = ["index", "menu"];
 	for(var i = 0; i < viewList.length; i++) {
-		plus.webview.close(viewList[i],"slide-out-right")
+		plus.webview.close(viewList[i],"slide-out-right",300)
 	}
 }

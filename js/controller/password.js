@@ -43,6 +43,6 @@ function isNull(str) {
 function gotoLogin() {
 	var viewList = ["index", "menu","password"];
 	for(var i = 0; i < viewList.length; i++) {
-		plus.webview.close(viewList[i],"slide-out-right")
+		plus.webview.close(viewList[i],"slide-out-right",300)
 	}
 }

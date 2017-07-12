@@ -195,7 +195,12 @@
 			"tpls/home.html": {
 				"resources": [
 					"img/banner1.jpg",
-					"img/yuantiao.jpg"
+					"img/yuantiao.jpg",
+					"js/controller/home.js",
+					"js/libs/server.js",
+					"css/mui.min.css",
+					"css/style.css",
+					"js/library/mui.min.js"
 				],
 				"refer": [
 					"tpls/webPage.html"
@@ -205,7 +210,13 @@
 			"tpls/menu.html": {
 				"resources": [
 					"fonts/mui.ttf",
-					"img/girl.png"
+					"img/girl.png",
+					"js/controller/menu.js",
+					"js/libs/server.js",
+					"css/mui.min.css",
+					"css/style.css",
+					"js/library/mui.min.js",
+					"img/boy.png"
 				],
 				"refer": [
 					"tpls/login.html",
@@ -220,7 +231,9 @@
 					"css/fontstyle.css",
 					"css/mui.min.css",
 					"css/style.css",
-					"fonts/iconfont.woff"
+					"fonts/iconfont.woff",
+					"js/controller/studentProfiles.js",
+					"img/girl.png"
 				],
 				"refer": [],
 				"priority": 0
@@ -233,7 +246,9 @@
 					"css/mui.min.css",
 					"css/style.css",
 					"fonts/iconfont.woff",
-					"fonts/mui.ttf"
+					"fonts/mui.ttf",
+					"js/controller/index.js",
+					"js/library/mui.min.js"
 				],
 				"refer": [
 					"tpls/menu.html",
@@ -254,7 +269,9 @@
 				"priority": 0
 			},
 			"tpls/courseBook.html": {
-				"resources": [],
+				"resources": [
+					"js/controller/courseBook.js"
+				],
 				"refer": [
 					"tpls/courseInfo.html"
 				],
@@ -266,7 +283,10 @@
 					"fonts/mui.ttf",
 					"css/mui.min.css",
 					"css/style.css",
-					"css/fontstyle.css"
+					"css/fontstyle.css",
+					"js/libs/server.js",
+					"js/library/mui.min.js",
+					"js/controller/courseInfo.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -277,11 +297,34 @@
 					"css/mui.min.css",
 					"css/fontstyle.css",
 					"css/style.css",
-					"fonts/iconfont.woff"
+					"fonts/iconfont.woff",
+					"js/controller/login.js",
+					"js/libs/server.js",
+					"js/library/mui.min.js"
 				],
 				"refer": [
 					"tpls/index.html"
 				],
+				"priority": 0
+			},
+			"tpls/transcript.html": {
+				"resources": [
+					"js/controller/transcript.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"tpls/password.html": {
+				"resources": [
+					"js/controller/password.js",
+					"js/libs/server.js",
+					"fonts/mui.ttf",
+					"css/fontstyle.css",
+					"css/mui.min.css",
+					"css/style.css",
+					"js/library/mui.min.js"
+				],
+				"refer": [],
 				"priority": 0
 			}
 		},

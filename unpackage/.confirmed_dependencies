@@ -1,87 +1,126 @@
 {
-  "tpls/home.html": {
-    "resources": [
-      "img/banner1.jpg",
-      "img/yuantiao.jpg"
-    ],
-    "refer": [
-      "tpls/webPage.html"
-    ]
-  },
-  "tpls/menu.html": {
-    "resources": [
-      "fonts/mui.ttf",
-      "img/girl.png"
-    ],
-    "refer": [
-      "tpls/login.html",
-      "tpls/password.html"
-    ]
-  },
-  "tpls/studentProfiles.html": {
-    "resources": [
-      "img/boy.png",
-      "js/mui.min.js",
-      "css/fontstyle.css",
-      "css/mui.min.css",
-      "css/style.css",
-      "fonts/iconfont.woff"
-    ],
-    "refer": []
-  },
-  "tpls/index.html": {
-    "resources": [
-      "tpls/home.html",
-      "js/mui.min.js",
-      "css/fontstyle.css",
-      "css/mui.min.css",
-      "css/style.css",
-      "fonts/iconfont.woff",
-      "fonts/mui.ttf"
-    ],
-    "refer": [
-      "tpls/home.html",
-      "tpls/menu.html",
-      "tpls/courseBook.html",
-      "tpls/transcript.html",
-      "tpls/studentProfiles.html"
-    ]
-  },
-  "tpls/webPage.html": {
-    "resources": [
-      "js/mui.min.js",
-      "fonts/mui.ttf",
-      "css/mui.min.css",
-      "css/style.css"
-    ],
-    "refer": []
-  },
-  "tpls/courseBook.html": {
-    "refer": [
-      "tpls/courseInfo.html"
-    ],
-    "resources": []
-  },
-  "tpls/courseInfo.html": {
-    "resources": [
-      "js/mui.min.js",
-      "fonts/mui.ttf",
-      "css/mui.min.css",
-      "css/style.css",
-      "css/fontstyle.css"
-    ],
-    "refer": []
-  },
-  "tpls/login.html": {
-    "resources": [
-      "js/mui.min.js",
-      "css/mui.min.css",
-      "css/fontstyle.css",
-      "css/style.css",
-      "fonts/iconfont.woff"
-    ],
-    "refer": [
-      "tpls/index.html"
-    ]
-  }
+	"tpls/home.html": {
+		"resources": [
+			"img/banner1.jpg",
+			"img/yuantiao.jpg",
+			"js/controller/home.js",
+			"js/libs/server.js",
+			"css/mui.min.css",
+			"css/style.css",
+			"js/library/mui.min.js"
+		],
+		"refer": [
+			"tpls/webPage.html"
+		]
+	},
+	"tpls/menu.html": {
+		"resources": [
+			"fonts/mui.ttf",
+			"img/girl.png",
+			"js/controller/menu.js",
+			"js/libs/server.js",
+			"css/mui.min.css",
+			"css/style.css",
+			"js/library/mui.min.js",
+			"img/boy.png"
+		],
+		"refer": [
+			"tpls/login.html",
+			"tpls/password.html"
+		]
+	},
+	"tpls/studentProfiles.html": {
+		"resources": [
+			"img/boy.png",
+			"js/mui.min.js",
+			"css/fontstyle.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"fonts/iconfont.woff",
+			"js/controller/studentProfiles.js",
+			"img/girl.png"
+		],
+		"refer": []
+	},
+	"tpls/index.html": {
+		"resources": [
+			"tpls/home.html",
+			"js/mui.min.js",
+			"css/fontstyle.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"fonts/iconfont.woff",
+			"fonts/mui.ttf",
+			"js/controller/index.js",
+			"js/library/mui.min.js"
+		],
+		"refer": [
+			"tpls/home.html",
+			"tpls/menu.html",
+			"tpls/courseBook.html",
+			"tpls/transcript.html",
+			"tpls/studentProfiles.html"
+		]
+	},
+	"tpls/webPage.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css"
+		],
+		"refer": []
+	},
+	"tpls/courseBook.html": {
+		"refer": [
+			"tpls/courseInfo.html"
+		],
+		"resources": [
+			"js/controller/courseBook.js"
+		]
+	},
+	"tpls/courseInfo.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css",
+			"css/fontstyle.css",
+			"js/libs/server.js",
+			"js/library/mui.min.js",
+			"js/controller/courseInfo.js"
+		],
+		"refer": []
+	},
+	"tpls/login.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"css/fontstyle.css",
+			"css/style.css",
+			"fonts/iconfont.woff",
+			"js/controller/login.js",
+			"js/libs/server.js",
+			"js/library/mui.min.js"
+		],
+		"refer": [
+			"tpls/index.html"
+		]
+	},
+	"tpls/transcript.html": {
+		"resources": [
+			"js/controller/transcript.js"
+		]
+	},
+	"tpls/password.html": {
+		"resources": [
+			"js/controller/password.js",
+			"js/libs/server.js",
+			"fonts/mui.ttf",
+			"css/fontstyle.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"js/library/mui.min.js"
+		]
+	}
 }

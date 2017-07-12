@@ -42,7 +42,7 @@ function getLessonList() {
 			var datalist = obj.data;
 			for(var i = 0; i < datalist.length; i++) {
 				var weekly = datalist[i].weekly.split(",");
-				var weekStr = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+				var weekStr = ['一', '二', '三', '四', '五', '六', '日'];
 				var weekDom = "";
 				for(var s = 0; s < weekStr.length; s++) {
 					if(weekly.indexOf((s + 1).toString()) > -1) {
@@ -69,7 +69,7 @@ function getLessonList() {
 							</div>\
 						</div>\
 						<div class="week-box">\
-							<div class="week-name">Every Week</div>\
+							<div class="week-name">星期</div>\
 							<div class="week-list">' + weekDom + '</div>\
 						</div>\
 					</div>';
@@ -106,6 +106,6 @@ mui('.mui-content').on('tap', '.mui-card', function() {
 function gotoLogin() {
 	var viewList = ["index", "menu"];
 	for(var i = 0; i < viewList.length; i++) {
-		plus.webview.close(viewList[i],"slide-out-right")
+		plus.webview.close(viewList[i],"slide-out-right",300)
 	}
 }
