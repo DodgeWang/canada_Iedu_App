@@ -30,10 +30,18 @@ function pulldownRefresh() {
 	getActivity();
 }
 
-//获取首页活动
+//获取首页
 function getActivity() {
+	//获取banner
+	XHRHTTPFunc.getBanner(function(obj){
+		if(obj.data !== null) {
+			document.getElementById("bannerImg").setAttribute("src",obj.data.path)
+		}
+	},function(){})
+	
+	//获取活动列表
 	XHRHTTPFunc.indexActivity(function(obj) {
-		console.log("thisData", JSON.stringify(obj));
+//		console.log("thisData", JSON.stringify(obj));
 		if(obj.status.code !== 0) {
 			mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
 			mui.alert(obj.status.msg, '提示', '确定', function() {

@@ -9,7 +9,8 @@ var path = function() {
 		url_getStudentMark: SERVER_URL + "/api/studentMark", //获取学生成绩
 		url_getlessonList: SERVER_URL + "/api/lessonList", //获取学生课程列表
 		url_getlessonInfo: SERVER_URL + "/api/lessonInfo", //获取学生课程信息详情
-		url_indexActivity: SERVER_URL + "/api/homeActivity" //获取首页展示活动
+		url_indexActivity: SERVER_URL + "/api/homeActivity", //获取首页展示活动
+		url_getBanner: SERVER_URL + "/api/getBanner" //获取首页banner
 	}
 }()
 
@@ -55,6 +56,9 @@ var XHRHTTPFunc = function() {
 		},
 		indexActivity: function(cb, errorCb) {
 			XHRHttpResquestFunc(path.url_indexActivity, {}, 'get', cb, errorCb);
+		},
+		getBanner: function(cb, errorCb) {
+			XHRHttpResquestFunc(path.url_getBanner, {}, 'get', cb, errorCb);
 		}
 	}
 }()
