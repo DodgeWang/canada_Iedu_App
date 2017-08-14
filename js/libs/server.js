@@ -1,6 +1,8 @@
 "use strict" //使用严格模式编写js
 var path = function() {
-	var SERVER_URL = "http://192.168.1.69:3000";
+  //var SERVER_URL = "http://192.168.1.69:3000";
+  //var SERVER_URL = "http://69.42.59.68:3000";
+	var SERVER_URL = "http://home.ieduapp.com:3000";
 	return {
 		url_login: SERVER_URL + '/api/login', //用户登陆
 		url_resetPassword: SERVER_URL + "/api/resetPassword", //修改密码
