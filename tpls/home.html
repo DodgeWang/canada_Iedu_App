@@ -8,9 +8,25 @@
 		<link href="../css/mui.min.css" rel="stylesheet" />
 		<link href="../css/style.css" rel="stylesheet" />
 		<style>
-			.mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-object{
-				height:120px;
+			.mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-object {
+				height: 120px;
 				background: #000000;
+			}
+			
+			.media_body {
+				font-size: 15px;
+				line-height: 26px;
+				display: block;
+				width: 100%;
+				text-overflow: ellipsis;
+				color: #FFFFFF;
+				overflow: hidden;
+				position: absolute;
+				top: 10px;
+				left: 14px;
+				padding-right: 14px;
+				background: #2AC845;
+				height: 26px;
 			}
 		</style>
 	</head>
@@ -20,16 +36,17 @@
 			<div class="mui-scroll">
 				<div class="mui-content" id="pageCont">
 					<div class="banner-box">
-						<img src="../img/banner1.jpg" style="width: 100%;" id="bannerImg"/>
+						<img src="../img/banner1.jpg" style="width: 100%;" id="bannerImg" />
 					</div>
 					<div id="activity">
 						<!--<div class="activity-list-box">
 							<div class="activity-list-title">校园活动</div>
 							<ul class="mui-table-view mui-grid-view">
 								<li class="mui-table-view-cell mui-media mui-col-xs-6" data-src='https://www.jd.com/'>
-									<a href="#">
+									<a href="#" style="display: block; position: relative;">
 										<img class="mui-media-object" src="../img/yuantiao.jpg">
 										<div class="mui-media-body">活动2</div>
+										<div class="media_body">hehe</div>
 									</a>
 								</li>
 								<li class="mui-table-view-cell mui-media mui-col-xs-6" data-src='https://www.baidu.com/'>

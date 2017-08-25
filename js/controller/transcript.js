@@ -19,16 +19,17 @@ function pulldownRefresh() {
 }
 
 
-var shouldIntegral = 100;
-document.getElementById('shouldIntegral').innerText = shouldIntegral;
+//var shouldIntegral = 100;
+var lesTitle = ["第一节","第二节","第三节","第四节"];
+//document.getElementById('shouldIntegral').innerText = shouldIntegral;
 function getMark() {
 	var user = JSON.parse(plus.storage.getItem('user'))
 	var param = {
-		studentNum: user.studentNum
+		studentNum: user.studentNum,
+		studentId: user.id
 	}
 
 	XHRHTTPFunc.getStudentMark(param, function(obj) {
-//		console.log("thisData",JSON.stringify(obj));
 		if(obj.status.code !== 0) {
 			mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
 			mui.alert(obj.status.msg, '提示', '确定', function() {
@@ -40,11 +41,11 @@ function getMark() {
 			return;
 		}
 		if(obj.data !== null) {
-			var dataList = obj.data.lessonList;
+			var dataList = obj.data;
 			var innerDom = "";
 			for(var i = 0; i<dataList.length; i++){
-				innerDom += '<div class="mui-card">\
-						<div class="mui-card-header">No.'+ (i+1) +'</div>\
+					innerDom += '<div class="mui-card">\
+						<div class="mui-card-header">'+ lesTitle[i] +'</div>\
 						<div class="mui-card-content">\
 							<div class="mui-card-content-inner">\
 								<ul class="transcript-info">\
@@ -59,10 +60,10 @@ function getMark() {
 							</div>\
 						</div>\
 					</div>'
+				
+				
 			}
 			document.getElementById('markList').innerHTML = innerDom;
-			document.getElementById('accumulatedCredit').innerText = obj.data.accumulatedCredit;
-			document.getElementById('disparity').innerText = shouldIntegral - Number(obj.data.accumulatedCredit);
 		} else {
 			console.log('该学生成绩暂时为空')
 		}

@@ -12,7 +12,7 @@ mui.plusReady(function() {
 	getLessonList();
 	
 })
-
+var lesTitle = ["第一节","第二节","第三节","第四节"];
 /**
  * 下拉刷新具体业务实现
  */
@@ -21,12 +21,15 @@ function pulldownRefresh() {
 }
 
 function getLessonList() {
+	
 	var user = JSON.parse(plus.storage.getItem('user'))
+	console.log(JSON.stringify(user))
 	var param = {
-		studentNum: user.studentNum
+		studentNum: user.studentNum,
+		studentId: user.id
 	}
 	XHRHTTPFunc.getLessonList(param, function(obj) {
-//		console.log("thisData", JSON.stringify(obj));
+		console.log("thisData", JSON.stringify(obj));
 		if(obj.status.code !== 0) {
 			mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
 			mui.alert(obj.status.msg, '提示', '确定', function() {
@@ -40,6 +43,7 @@ function getLessonList() {
 		if(obj.data !== null) {
 			var innerDom = "";
 			var datalist = obj.data;
+			
 			for(var i = 0; i < datalist.length; i++) {
 				var weekly = datalist[i].weekly.split(",");
 				var weekStr = ['一', '二', '三', '四', '五', '六', '日'];
@@ -51,10 +55,10 @@ function getLessonList() {
 						weekDom += ('<span>' + weekStr[s] + '</span>');
 					}
 				}
-				innerDom += '<div class="mui-card" data-pNum="' + datalist[i].pNum + '">\
-						<div class="courselist-header">\
-							<span class="courselist-num">No.' + (i + 1) + '</span>\
-							<span class="courselist-code">课程代码：' + datalist[i].pCode + '</span>\
+				var typesStr = datalist[i].type === 0 ? '<div class="mui-card card-click" data-pNum="' + datalist[i].pNum + '">' : '<div class="mui-card">';
+				innerDom += (typesStr + '<div class="courselist-header">\
+							<span class="courselist-num">' + lesTitle[i] + '</span>\
+                            <span class="courselist-code">'+ datalist[i].pName+ '</span>\
 						</div>\
 						<div class="mui-card-content">\
 							<div class="mui-card-content-inner">\
@@ -72,7 +76,9 @@ function getLessonList() {
 							<div class="week-name">星期</div>\
 							<div class="week-list">' + weekDom + '</div>\
 						</div>\
-					</div>';
+					</div>');
+				
+				
 			}
 			document.getElementById('lessonlist').innerHTML = innerDom;
 		} else {
@@ -89,7 +95,7 @@ function getLessonList() {
 	})
 }
 
-mui('.mui-content').on('tap', '.mui-card', function() {
+mui('.mui-content').on('tap', '.card-click', function() {
 	var pNum = this.getAttribute('data-pNum')
 	mui.openWindow({
 		url: 'courseInfo.html',

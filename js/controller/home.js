@@ -32,6 +32,9 @@ function pulldownRefresh() {
 
 //获取首页
 function getActivity() {
+    var bgColor = ["#2e93e9","#ff8a00","#a42842","#417cd8"]
+	
+	
 	//获取banner
 	XHRHTTPFunc.getBanner(function(obj){
 		if(obj.data !== null) {
@@ -61,7 +64,7 @@ function getActivity() {
 					for(var s = 0; s < dataList[i].list.length; s++) {
 						itemDom += '<li class="mui-table-view-cell mui-media mui-col-xs-6" data-src="' + dataList[i].list[s].url + '">\
 									<a href="#"><img class="mui-media-object" src="' + dataList[i].list[s].imgpath + '">\
-										<div class="mui-media-body">' + dataList[i].list[s].title + '</div>\
+										<div class="media_body" style="background:'+bgColor[s]+'">' + dataList[i].list[s].title + '</div>\
 									</a>\
 								</li>'
 					}
